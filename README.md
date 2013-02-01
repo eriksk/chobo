@@ -1,22 +1,21 @@
 # Chobo
 
-TODO: Write a gem description
+Get started with game programming using Ruby/Gosu as quickly as possible using Chobo!
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install the gem
 
-    gem 'chobo'
+	gem install chobo
 
-And then execute:
+Create a new game
 
-    $ bundle
+	chobo new my_awesome_game
 
-Or install it yourself as:
+Run the game!
 
-    $ gem install chobo
+	ruby my_awesome_game.rb
 
 ## Usage
 
-TODO: Write usage instructions here
-
+	# TODO, behaviors and stuff. Game structure ex...
