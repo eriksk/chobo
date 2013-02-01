@@ -64,6 +64,7 @@ module #{name}
 	FULLSCREEN = false
 	TITLE = #{name}
 	CONTENT_ROOT = 'content'
+	CLEAR_COLOR = Chobo.color(255, 255, 255)
 end
 
 require_relative 'lib/game'
@@ -87,7 +88,17 @@ module #{name}
 		end
 
 		def draw
+			clear
 			@game.draw
+		end
+
+		def clear
+			draw_quad(
+				0, 0, CLEAR_COLOR,
+				WIDTH, 0, CLEAR_COLOR,
+				WIDTH, HEIGHT, CLEAR_COLOR,
+				0, HEIGHT, CLEAR_COLOR
+			)	
 		end
 	end
 end
@@ -102,15 +113,25 @@ module #{name}
 
 		def initialize window
 			@window = window
+			@font = Gosu::Font.new(window, Gosu::default_font_name, 64)
+			@color = Chobo.color(0,0,0,0)
+			@fade_in = 2000
+			@process = 0.0
 		end
 
 		def update dt
 			if @window.button_down? Gosu::KbEscape
 				@window.close
 			end
+			@fade_in -= dt
 		end
 		
 		def draw
+			if @fade_in >= 0.0
+				@process = (2000.0 - @fade_in) / 2000.0
+				@color.alpha = Chobo.qlerp(0, 255, @process).to_i
+			end
+			@font.draw_rel("/Chobo/", WIDTH / 2.0, HEIGHT / 2.0, 0, 0.5, 0.5, Chobo.qlerp(0.0, 1.0, @process), Chobo.qlerp(0.5, 1.0, @process), @color)
 		end
 	end
 end
