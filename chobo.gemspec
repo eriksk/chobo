@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Chobo::VERSION
   gem.authors       = ["Erik Skoglund"]
   gem.email         = ["erikskoglund88@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Chobo is a simple way to start new game projects with gosu}
+  gem.summary       = %q{The purpose of Chobo is to create boilerplate code for gosu projects}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)

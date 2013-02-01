@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'chobo'
-require_relative 'lib/chobo/commands'
 Chobo::Commands.run(ARGV)
