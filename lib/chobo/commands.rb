@@ -13,9 +13,14 @@ module Chobo
 				when "help"
 					print_help()
 				when nil
+					puts "Command not found"
 					print_help()
 				when ""
+					puts "Command not found"
 					print_help()
+				else
+					puts "Command not found"
+					print_help
 			end
 		end
 
