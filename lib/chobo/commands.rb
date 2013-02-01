@@ -54,6 +54,7 @@ module Chobo
 				end
 
 				puts "Run with $ruby #{name.downcase}.rb"
+				`ruby #{name.downcase}.rb`
 			end
 
 			def self.get_config name
