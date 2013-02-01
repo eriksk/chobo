@@ -21,13 +21,15 @@ module Chobo
 
 		private
 			def self.print_help
-				puts "TODO: help... ooopsie"
+				puts "commands:"
+				puts "    help # show help"
+				puts "    new [name] # create a new game template"
 			end
 
 			def self.create name
 				name = name.capitalize
 				puts "Creating game #{name}"
-				puts "Creating directory structure"
+
 				Dir.mkdir('content')
 				Dir.mkdir('content/gfx')
 				Dir.mkdir('content/audio')
@@ -35,8 +37,6 @@ module Chobo
 				Dir.mkdir('lib')
 				Dir.mkdir('lib/behaviors')
 
-				puts "Adding base files"
-				
 				File.open("#{name.downcase}.rb", 'w+') do |f|
 					f.write get_main name
 				end
@@ -53,7 +53,7 @@ module Chobo
 					f.write get_game name
 				end
 
-				puts "Done! Run with $ruby #{name.downcase}.rb"
+				puts "Run with $ruby #{name.downcase}.rb"
 			end
 
 			def self.get_config name
@@ -105,6 +105,9 @@ module #{name}
 		end
 
 		def update dt
+			if @window.button_down? Gosu::KbEscape
+				@window.close
+			end
 		end
 		
 		def draw
