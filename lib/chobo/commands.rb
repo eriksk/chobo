@@ -1,3 +1,22 @@
+class String
+	def colorize(color_code)
+	  "\e[#{color_code}m#{self}\e[0m"
+	end
+ 
+	def red
+		colorize(31)
+	end
+	def green
+		colorize(32)
+	end
+	def yellow
+		colorize(33)
+	end
+	def pink
+		colorize(35)
+	end
+end
+
 module Chobo
 	class Commands
 
@@ -7,33 +26,33 @@ module Chobo
 					if args.length > 1
 						create(args.last)
 					else
-						puts "Please supply a name for the game."
-						puts "	ex: chobo new my_first_game"
+						puts "Please supply a name for the game.".yellow
+						puts "	ex: chobo new my_first_game".yellow
 					end
 				when "help"
 					print_help()
 				when nil
-					puts "Command not found"
+					puts "Command not found".red
 					print_help()
 				when ""
-					puts "Command not found"
+					puts "Command not found".red
 					print_help()
 				else
-					puts "Command not found"
+					puts "Command not found".red
 					print_help
 			end
 		end
 
 		private
 			def self.print_help
-				puts "commands:"
-				puts "    help # show help"
-				puts "    new [name] # create a new game template"
+				puts "commands:".yellow
+				puts "    help # show help".yellow
+				puts "    new [name] # create a new game template".yellow
 			end
 
 			def self.create name
 				name = name.capitalize
-				puts "Creating game #{name}"
+				puts "Creating game #{name}".green
 
 				Dir.mkdir('content')
 				Dir.mkdir('content/gfx')
@@ -58,7 +77,7 @@ module Chobo
 					f.write get_game name
 				end
 
-				puts "Run with $ruby #{name.downcase}.rb"
+				puts "Run with $ruby #{name.downcase}.rb".green
 				`ruby #{name.downcase}.rb`
 			end
 
@@ -120,7 +139,7 @@ module #{name}
 		def initialize window
 			@window = window
 			@font = Gosu::Font.new(window, Gosu::default_font_name, 64)
-			@color = Chobo.color(0,0,0,0)
+			@color = Chobo.color(126, 126, 126)
 			@fade_in = 2000
 			@process = 0.0
 		end
