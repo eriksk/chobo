@@ -12,6 +12,20 @@ Create a new game
 
 	chobo new my_awesome_game
 
+This will create the following file structure
+
+	.  
+	|____assets
+	|____config.rb
+	|____content
+	| |____audio
+	| |____gfx
+	|____game_window.rb
+	|____lib
+	| |____behaviors
+	| |____game.rb
+	|____my_awesome_game.rb
+
 Run the game!
 
 	ruby my_awesome_game.rb
