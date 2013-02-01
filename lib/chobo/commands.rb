@@ -29,6 +29,10 @@ module Chobo
 						puts "Please supply a name for the game.".yellow
 						puts "	ex: chobo new my_first_game".yellow
 					end
+				when "-v"
+					print_version()
+				when "-version"
+					print_version()
 				when "help"
 					print_help()
 				when nil
@@ -44,10 +48,15 @@ module Chobo
 		end
 
 		private
+			def self.print_version
+				puts "chobo-#{VERSION}"
+			end
+
 			def self.print_help
 				puts "commands:".yellow
-				puts "    help # show help".yellow
-				puts "    new [name] # create a new game template".yellow
+				puts "    help	# show help".yellow
+				puts "    new [name]	# create a new game template".yellow
+				puts "    -v		# show version".yellow
 			end
 
 			def self.create name
