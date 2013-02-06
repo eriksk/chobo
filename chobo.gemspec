@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["erikskoglund88@gmail.com"]
   gem.description   = %q{Chobo is a simple way to start new game projects with gosu}
   gem.summary       = %q{The purpose of Chobo is to create boilerplate code for gosu projects}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/eriksk/chobo"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
